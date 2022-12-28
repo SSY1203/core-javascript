@@ -50,9 +50,35 @@ console.log('funcion type : ', typeof func);
 // 언어 상, 오류 : null은 object가 아니라는 점 주
 
 // Object
+/* key value */
+/* const user = new Object();
+user.name = 'tiger';
+user.age = 26; */
+
+/* 객체 리터럴 */
+const user = {
+  name: 'tiger',
+  age: 32,
+};
 
 // Array
+// let list = new Array();
+
+/* 배열 리터럴 */
+let list = [10, 100, 1000, 1, 2, 3];
 
 // function
+function sum() {
+  console.log(1 + 2);
+}
+
+sum();
+
+function carpBread(data) {
+  return `${data} 맛 붕어빵입니다.`;
+}
+console.log(carpBread('팥'));
+console.log(carpBread('크림'));
+console.log(carpBread('민트'));
 
 // this
