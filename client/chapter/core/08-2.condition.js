@@ -39,9 +39,9 @@ let whichTruthy = false || '' || [2, 3].length || { thisIsTruthy: true };
 let userName = prompt('userName을 입력해주세요.', '');
 let pw;
 
-if (userName === 'Admin') {
+if (userName.localeCompare('Admin')) {
   pw = prompt('password를 입력해주세요.', '');
-  if (pw === 'TheMaster') {
+  if (pw.localeCompare('TheMaster')) {
     console.log('welcome!');
   } else if (pw === '' || pw === null) {
     console.log('Canceled ');
