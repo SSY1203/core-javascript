@@ -1,4 +1,6 @@
 {
+  "editor.fontFamily": "'Fira Code Retina', 'D2Coding'",
+  "editor.fontLigatures": true,
   "editor.tokenColorCustomizations": {
     "comments": "#00a2ff",
     "textMateRules": []
