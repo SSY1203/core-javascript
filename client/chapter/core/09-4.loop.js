@@ -27,13 +27,34 @@ Object.prototype.nickName = 'tiger';
 // 객체 자신(own)의 속성(property)인지 확인(has)하는 방법
 // - "자신의 속성을 가지고있는지 확인 방법"이 덮어쓰여질 수 있는 위험에 대처하는 안전한 방법은?
 
+// Object.prototype === {}
+
 for (let key in javaScript) {
   /* Object 프로토타입 안에 포함된 hasOwnProperty를 부르는데 javaScript라는 객체 안에 key를 호출 */
-  if (Object.prototype.hasOwnProperty.call(javaScript, key)) {
-    console.log(key);
+  if ({}.hasOwnProperty.call(javaScript, key)) {
+    // console.log(key);
   }
 }
+
+const user = {
+  name: 'tiger',
+  age: 26,
+};
+
+function hello() {
+  // console.log(this);
+}
+
+hello.call(user);
 
 // for ~ in 문
 // - 객체 자신의 속성만 순환하려면?
 // - 배열 객체 순환에 사용할 경우?
+
+let tens = [10, 100, 1000, 10000];
+
+for (let value in tens) {
+  if ({}.hasOwnProperty.call(tens, value)) {
+    console.log(tens[value]);
+  }
+}
