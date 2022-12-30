@@ -39,16 +39,31 @@ let whichTruthy = false || '' || [2, 3].length || { thisIsTruthy: true };
 let userName = prompt('userName을 입력해주세요.', '');
 let pw;
 
-if (userName.localeCompare('Admin')) {
+// if (userName.localeCompare('Admin')) {
+//   pw = prompt('password를 입력해주세요.', '');
+//   if (pw.localeCompare('TheMaster')) {
+//     console.log('welcome!');
+//   } else if (pw === '' || pw === null) {
+//     console.log('Canceled ');
+//   } else {
+//     console.log('Wrong password.');
+//   }
+// } else if (userName === ' ' || userName === null) {
+//   console.log('Canceled');
+// } else {
+//   console.log("I don't know who you are.");
+// }
+
+if (userName?.toLowerCase() === 'Admin') {
   pw = prompt('password를 입력해주세요.', '');
-  if (pw.localeCompare('TheMaster')) {
+  if (pw?.toLowerCase() === 'TheMaster') {
     console.log('welcome!');
   } else if (pw === '' || pw === null) {
     console.log('Canceled ');
   } else {
     console.log('Wrong password.');
   }
-} else if (userName === ' ' || userName === null) {
+} else if (userName.replace(/\s*/g, '') === '' || userName === null) {
   console.log('Canceled');
 } else {
   console.log("I don't know who you are.");
