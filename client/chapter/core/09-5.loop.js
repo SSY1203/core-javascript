@@ -106,11 +106,9 @@ const randomUser = {
 // - for ~ of 문
 // - 성능 비교 진단
 
-// for(let value in randomUser) {
-//   let L1 = randomUser[value];
-//   console.log(value);
-
-//   if(typeof L1 === 'object'){
-
-//   }
-// }
+/* 
+예습
+Object.entries
+Object.keys
+Object.values
+  */
