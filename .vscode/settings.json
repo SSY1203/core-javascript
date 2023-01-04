@@ -2,7 +2,10 @@
   "editor.fontFamily": "'Fira Code Retina', 'D2Coding'",
   "editor.fontLigatures": true,
   "editor.tokenColorCustomizations": {
-    "comments": "#00a2ff",
+    "comments": "#cee1f2",
     "textMateRules": []
   }
 }
+
+// #fcdf63
+/*  안녕 클레오 파트라 세상에서 제일 가는 포테이토 칩!!!! */

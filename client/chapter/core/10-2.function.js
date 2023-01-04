@@ -53,7 +53,7 @@ let calculateTotal = function (moneyA, moneyB, moneyC, moneyD) {
   //   return moneyA + moneyB + moneyC + moneyD;
 };
 
-console.log(calculateTotal(1, 2, 3, 45));
+// console.log(calculateTotal(1, 2, 3, 45));
 
 // 익명(이름이 없는) 함수 (표현)식
 let anonymousFunctionExpression = function () {};
@@ -62,7 +62,24 @@ let anonymousFunctionExpression = function () {};
 let namedFunctionExpression = function hello() {};
 
 // 콜백 함수 (표현)식
-let callbackFunctionExpression;
+let callbackFunctionExpression = function (url, resolve, reject) {
+  if (typeof url === 'string' && url.match(/http.+www/)) {
+    //   if (typeof url === 'string' && url.includes('http') && url.includes('www')) {
+    resolve(url);
+  } else {
+    reject();
+  }
+};
+
+callbackFunctionExpression(
+  'http://www.nvaer.com',
+  function (url) {
+    console.log(`${url} 해당 페이지로 이동합니다.`);
+  },
+  function () {
+    console.log('url 입력 정보가 올바르지 않습니다.');
+  },
+);
 
 // 함수 선언문 vs. 함수 (표현)식
 
