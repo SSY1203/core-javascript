@@ -65,3 +65,5 @@ getAttr('.first', 'class'); // first
 setAttr('.first', 'data-value', '안녕클레오파트라');
 
 attr('.second', 'play', 'coding');
+
+let result = attr('.second', 'class');
