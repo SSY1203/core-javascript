@@ -59,23 +59,32 @@ console.log(first.dataset.play); // get
 // 유틸 함수
 // get 함수 만들기
 
-function getAttr(node, attr) {
+function getAttr(node, prop) {
   if (typeof node === 'string') {
     node = getNode(node);
   }
-  return node.getAttribute(attr);
+  return node.getAttribute(prop);
 }
 
 getAttr('.first', 'class'); // first
 
-console.assert(getAttr('.first', 'class') === 'first');
+// const second = getNode('.second');
+// console.assert(getAttr('.first', 'class') === 'first');
 
 // set 함수 만들기
-function setAttr(node, attr, context) {
-  return getNode(node).setAttribute(attr, context);
-}
+const setAttr = (node, prop, value) => {
+  if (typeof node === 'string') node = getNode(node);
+  if (typeof prop !== 'string')
+    throw new TypeError('setAttr 함수의 두 번째 인자는 문자 타입 이어야 합니다.');
+  if (prop.includes('data')) {
+    let rest = prop.slice(5);
+    node.dataset[rest] = value;
+  }
+  if (!value) throw new SyntaxError('setAttr 함수의 세 번째 인자는 필수값입니다.');
+  node.setAttribute(prop, value);
+};
 
-setAttr('.first', 'id', '안녕클레오파트라');
+setAttr('.first', 'data-value', '안녕클레오파트라');
 
 // common 함수 만들기
-function commonAttr(get, set) {}
+function attr(get, set) {}
