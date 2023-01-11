@@ -2,6 +2,9 @@ function getNode(node) {
   if (typeof node !== 'string') {
     throw new Error('getNode 함수의 인자는 문자 타입이여야 한다.');
   }
+
+  // if(!isString(node)) typeError('에러가 발생했습니다.');
+
   let result = document.querySelector(node);
   return result;
 }
