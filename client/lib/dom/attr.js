@@ -20,4 +20,5 @@ const setAttr = (node, prop, value) => {
 };
 
 // common 함수 만들기
-const attr = (node, prop, value) => (!value ? getAttr(node, prop) : setAttr(node, prop, value));
+export const attr = (node, prop, value) =>
+  !value ? getAttr(node, prop) : setAttr(node, prop, value);

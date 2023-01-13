@@ -1,6 +1,8 @@
 /* eslint no-undef: 'off' */
 /* eslint no-unused-vars: 'off' */
 
+import { getNode, css, addClass, removeClass, toggleClass } from './lib/index.js';
+
 const first = getNode('#firstNumber');
 const second = getNode('#secondNumber');
 const doneButton = getNode('#done');

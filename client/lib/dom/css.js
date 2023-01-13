@@ -1,11 +1,11 @@
-function addClass(node, className) {
+export function addClass(node, className) {
   if (typeof node !== 'string' || typeof className !== 'string')
     typeError('addClass 함수의 인자는 String이여야 합니다.');
   node = getNode(node);
   node.classList.add(className);
 }
 
-function removeClass(node, className) {
+export function removeClass(node, className) {
   if (!className) {
     node.className = '';
     return;
@@ -16,7 +16,7 @@ function removeClass(node, className) {
   node.classList.remove(className);
 }
 
-function toggleClass(node, className) {
+export function toggleClass(node, className) {
   if (typeof node !== 'string' || typeof className !== 'string')
     typeError('addClass 함수의 인자는 String이여야 합니다.');
   node = getNode(node);
@@ -47,7 +47,7 @@ function setCss(node, prop, value) {
   node.style[prop] = value;
 }
 
-const css = (node, prop, value) => (!value ? getCss(node, prop) : setCss(node, prop, value));
+export const css = (node, prop, value) => (!value ? getCss(node, prop) : setCss(node, prop, value));
 
 // if (!value) return getCss(node, prop);
 // else setCss(node, prop, value);
