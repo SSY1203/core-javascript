@@ -1,9 +1,3 @@
-function handler() {
-  console.log('hit!');
-  //   second.hidden = true;
-  //   css('.second', 'display', 'none');
-}
-
 function bindEvent(node, type, handler) {
   if (typeof node === 'string') {
     node = getNode(node);
