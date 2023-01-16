@@ -9,6 +9,7 @@ import {
   insertLast,
   sum,
   attr,
+  memo,
   clearContents,
 } from './lib/index.js';
 
@@ -21,7 +22,7 @@ let diceCount = 0;
 let diceSum = 0;
 
 function renderRecordListItem() {
-  const diceValue = attr('#cube', 'data-dice');
+  const diceValue = attr(memo('cube'), 'data-dice');
 
   let template = /* html */ `
   <tr>
@@ -68,10 +69,10 @@ const handlerRecord = () => {
 };
 
 const handlerReset = () => {
-  invisibleElement(recordListWrapper);
-  clearContents(' .recordListWrapper tbody');
   diceCount = 0;
   diceSum = 0;
+  invisibleElement(recordListWrapper);
+  clearContents(' .recordListWrapper tbody');
 };
 
 rollingDiceButton.addEventListener('click', handleRollingDice);
