@@ -1,20 +1,21 @@
 import {
+  clearContents,
   getInputValue,
   getNode,
+  getRandom,
   insertLast,
-  attr,
-  clearContents,
-  syntaxError,
+  isNumericString,
+  addClass,
+  removeClass,
   showAlert,
+  copy,
 } from './lib/index.js';
+
 import { jujeobData } from './data/data.js';
-import { getRandom } from './lib/math/index.js';
-import { isNumericString } from './lib/utils/index.js';
 
 const submit = getNode('#submit');
 const resultArea = getNode('.result');
 
-// 제출 버튼 핸들러
 function clickSubmitHandler(e) {
   e.preventDefault();
 
@@ -23,12 +24,41 @@ function clickSubmitHandler(e) {
   let pick = list[getRandom(list.length - 1)];
 
   if (!name) {
-    showAlert('.alert-error', '잘못된 정보입니다!', 2000);
+    console.log('이름을 입력해 주세요!');
+    showAlert('.alert-error', '잘못된 정보입니다.!', 2000);
+
+    // GSAP
+    gsap.fromTo(resultArea, 0.01, { x: -5 }, { x: 5, clearProps: 'x', repeat: 20 });
+
+    // addClass(resultArea, 'shake');
+    // setTimeout(() => {
+    //   removeClass(resultArea, 'shake');
+    // }, 1000);
     return;
   }
-  if (isNumericString(name)) syntaxError('제대로 된 이름을 써주세요.');
+
+  if (isNumericString(name)) {
+    console.log('제대로된 이름을 입력해주세요.');
+    showAlert('.alert-error', '정확한 이름을 입력해주세요!', 2000);
+    return;
+  }
+
   clearContents(resultArea);
   insertLast(resultArea, pick);
 }
 
+function clickCopyHandler() {
+  let text = resultArea.textContent;
+  // navigator.clipboard.writeText(text);
+  copy(text).then(() => {
+    showAlert('.alert-success', '클립보드 복사가 완료됐습니다.', 2000);
+  });
+
+  // 약속구문
+
+  // 약속
+  // 다음 해야 할 일
+}
+
 submit.addEventListener('click', clickSubmitHandler);
+resultArea.addEventListener('click', clickCopyHandler);
