@@ -46,11 +46,17 @@ const defaultOptions = {
   errorMessage: '알 수 없는 오류가 발생했습니다.',
 };
 
-function delayP(options = {}) {
+export function delayP(options = {}) {
   let config = { ...defaultOptions };
 
-  // 객체 합성 mixin
-  config = { ...config, ...options };
+  if (isNumber(options)) {
+    config.timeout = options;
+  }
+
+  if (isObject(options)) {
+    // 객체 합성 mixin
+    config = { ...config, ...options };
+  }
 
   const { shouldReject, data, errorMessage, timeout } = config;
 
@@ -59,9 +65,17 @@ function delayP(options = {}) {
   });
 }
 
-delayP({
-  timeout: 1500,
-  data: '성공입니다~~',
-})
-  .then(res => console.log(res))
-  .catch(err => console.log(err));
+// delayP(3000)
+//   .then(res => console.log(res))
+//   .catch(err => console.log(err));
+
+// async await
+// async : 일반 함수를 promise를 반환하는 함수로 만든다.
+// await : 1. promise가 반환하는 result를 가져오기
+//         2. 코드 실행 흐름 제어
+
+async function delayA() {
+  return '완료';
+}
+
+let result = await delayA();
