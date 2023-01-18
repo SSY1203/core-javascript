@@ -39,17 +39,29 @@ delay(()=>{
 //     second.style.left = '0px';
 //   });
 
-function delayP(
-  shouldReject = false,
-  timeout = 1000,
-  data = '성공했습니다.',
-  errorMessage = '알 수 없는 오류가 발생했습니다.',
-) {
+const defaultOptions = {
+  shouldReject: false,
+  timeout: 1000,
+  data: '성공',
+  errorMessage: '알 수 없는 오류가 발생했습니다.',
+};
+
+function delayP(options = {}) {
+  let config = { ...defaultOptions };
+
+  // 객체 합성 mixin
+  config = { ...config, ...options };
+
+  const { shouldReject, data, errorMessage, timeout } = config;
+
   return new Promise((resolve, reject) => {
     setTimeout(() => (!shouldReject ? resolve(data) : reject(errorMessage)), timeout);
   });
 }
 
-delayP(false, 1000, '진짜 성공', '오류가 발생했다!!!')
+delayP({
+  timeout: 1500,
+  data: '성공입니다~~',
+})
   .then(res => console.log(res))
   .catch(err => console.log(err));
