@@ -19,7 +19,7 @@ export const xhrData = ({
   // 비동기 통신 오픈
   xhr.open(method, url);
 
-  console.log(Object.entries(headers));
+  //   console.log(Object.entries(headers));
 
   //   Object.entries(headers).forEach(([key, value]) => {
   //     xhr.setRequestHeader(key, value);
@@ -30,8 +30,8 @@ export const xhrData = ({
     const { status, readyState, response } = xhr; // 객체 구조 분해 할당
     if (status >= 200 && status < 400) {
       if (readyState === 4) {
+        // console.log('통신 성공');
         onSuccess(JSON.parse(response));
-        console.log('통신 성공');
       }
     } else {
       onFail('통신 실패');
