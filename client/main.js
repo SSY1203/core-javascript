@@ -1,29 +1,16 @@
-import { xhrPromise, insertLast, xhrData, tiger, delayP } from './lib/index.js';
+import { insertLast, tiger, delayP, createUserCard } from './lib/index.js';
 
-// xhrData.get(
-//   'https://jsonplaceholder.typicode.com/users',
-//   res => {
-//     // insertLast('body', JSON.stringify(res));
-//   },
-//   err => {
-//     // insertLast('body', '데이터 로딩에 실패했습니다. ');
-//   },
-// );
+// 유저 카드 생성
+// 생성된 카드로 렌더링
 
-xhrPromise
-  .get('https://jsonplaceholder.typicode.com/users/1')
-  .then(res => {
-    // insertLast(document.body, JSON.stringify(res));
-  })
-  .catch(err => {
-    console.log(err);
-  });
+// rendingUserList
+// ajax get user List
 
-async function render() {
-  await delayP(2000);
-  let response = await tiger.get('https://jsonplaceholder.typicode.com/users/1');
+async function rendingUserList(url) {
+  let response = await tiger.get(url);
+  let userData = response.data;
 
-  console.log(response.data);
+  console.log(userData);
 }
 
-render();
+rendingUserList('https://jsonplaceholder.typicode.com/users/1');
