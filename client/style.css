@@ -38,10 +38,10 @@ h2 {
 }
 
 .user-card {
-  background: #cb9a7f;
+  background: #a5ced5;
   padding: 1rem 2rem;
   border-radius: 1rem;
-  color: #9f3c2d;
+  color: #ffffff;
   display: flex;
   flex-direction: column;
   max-width: 400px;
@@ -85,8 +85,8 @@ h2 {
   position: absolute;
   right: 10px;
   top: 10px;
-  border: 2px solid rgba(0, 0, 0, 0.544);
-  color: black;
+  border: 2px solid rgba(246, 244, 241, 0.544);
+  color: #ffffff;
   cursor: pointer;
   transition: all 0.3s;
 }
@@ -99,7 +99,7 @@ h2 {
 .user-card a {
   color: inherit;
   display: inline-block;
-  border: 1px solid #9f3c2d;
+  border: 1px solid #ffffff;
   border-radius: 1rem;
   padding: 0.3rem 0.5rem;
   font-size: 0.9rem;

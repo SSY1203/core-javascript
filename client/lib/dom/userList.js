@@ -1,6 +1,6 @@
-export const createUserCard = user => {
-  const { id, name, email, website } = user;
+import { getNode, insertLast } from '../index.js';
 
+export const createUserCard = ({ id = '', name = '', email = '', website = '' } = {}) => {
   return /* html */ `
     <article class="user-card" data-index="user-${id}">
     <h3 class="user-name">${name}</h3>
@@ -23,6 +23,6 @@ export const createUserCard = user => {
     `;
 };
 
-console.log(
-  createUserCard({ id: 2, name: 'tiger', email: 'tiger@euid.dev', website: 'tiger.com' }),
-);
+export const renderUserCard = (target, userData) => {
+  insertLast(target, createUserCard(userData));
+};
